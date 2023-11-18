@@ -1,7 +1,7 @@
 {
   "name": "fluttereasylocalization",
   "displayName": "Flutter EasyLocalization",
-  "description": "Helps to convert strings into localization files, generate the keys and replaces the string with the localization key.",
+  "description": "Helps to extract strings into localization files, generate the keys and replaces the string with the localization key.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.84.0"
@@ -9,9 +9,14 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-  ],
+  "activationEvents": [],
   "main": "./dist/extension.js",
+  "keywords": [],
+  "author": {
+    "name": "iOSonntag",
+    "url": "https://iOSonntag.com"
+  },
+  "homepage": "https://iOSonntag.com",
   "contributes": {
     "commands": [
       {
@@ -33,21 +38,32 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "semantic-release": "semantic-release",
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit",
+    "deploy": "vsce publish --yarn"
   },
   "devDependencies": {
-    "@types/vscode": "^1.84.0",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/mocha": "^10.0.3",
     "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
     "@typescript-eslint/eslint-plugin": "^6.9.0",
     "@typescript-eslint/parser": "^6.9.0",
+    "@vscode/test-electron": "^2.3.6",
+    "@vscode/vsce": "^2.22.0",
+    "commitlint": "^17.7.1",
     "eslint": "^8.52.0",
     "glob": "^10.3.10",
+    "husky": "^8.0.3",
     "mocha": "^10.2.0",
-    "typescript": "^5.2.2",
+    "semantic-release": "^22.0.4",
     "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4",
-    "@vscode/test-electron": "^2.3.6"
+    "webpack-cli": "^5.1.4"
   }
 }
