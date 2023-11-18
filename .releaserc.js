@@ -34,12 +34,6 @@ module.exports = {
         "npmPublish": false 
       }
     ],
-    [
-      "@semantic-release/exec",
-      {
-        "populateVersion": "pnpm run version"
-      }
-    ],
   ],
   "dryRun": false,
   "preset": "angular"
