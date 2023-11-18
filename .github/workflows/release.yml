@@ -1,4 +1,4 @@
-name: build
+name: Release
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
 
       - name: Create new version & CHANGELOG.md
         id: chkVersion
-        run: npm run semantic-release
+        run: pnpm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
