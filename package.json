@@ -4,7 +4,7 @@
   "description": "Helps to extract strings into localization files, generate the keys and replaces the string with the localization key.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.84.0"
+    "vscode": "^1.84.2"
   },
   "categories": [
     "Formatters"
@@ -43,7 +43,7 @@
     "semantic-release": "semantic-release",
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
-    "deploy": "vsce publish"
+    "deploy": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
