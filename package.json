@@ -16,6 +16,7 @@
     "name": "iOSonntag",
     "url": "https://iOSonntag.com"
   },
+  "publisher": "iOSonntag",
   "homepage": "https://iOSonntag.com",
   "contributes": {
     "commands": [
@@ -42,7 +43,7 @@
     "semantic-release": "semantic-release",
     "prepare": "husky install",
     "commitlint": "commitlint --edit",
-    "deploy": "vsce publish --yarn"
+    "deploy": "vsce publish"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
