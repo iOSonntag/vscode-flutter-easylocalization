@@ -14,7 +14,9 @@
     "type": "git",
     "url": "https://github.com/iOSonntag/vscode-flutter-easylocalization.git"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:dart"
+  ],
   "main": "./dist/extension.js",
   "keywords": [],
   "author": {
