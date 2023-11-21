@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.2.0...v1.3.0) (2023-11-21)
+
+
+### Features
+
+* add activation event ([5e0ca96](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/5e0ca96d648582dbe2d51873f0c88025b4e6bea4))
+
 # [1.2.0](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.1.0...v1.2.0) (2023-11-19)
 
 
