@@ -13,6 +13,7 @@ doing so, all from the comfort of staying in the development file.
 <video src="resources/easy_localization.mov?raw=true" width="500">
 
 
+
 ## Features
 
 - extract current file's strings into localization files
