@@ -45,7 +45,12 @@ export function getFlutterRoot(relativePath: boolean = true): string
 {
   let vscodeWorkspace = vscode.workspace.workspaceFolders![0].uri.path;
   let path = currentPath();
-
+	
+  // If platform is windows and path starts with / then remove the first slash
+  if (process.platform === "win32" && path.startsWith("/")) {
+    path = path.slice(1);
+    vscodeWorkspace = vscodeWorkspace.slice(1);
+  }
 
   while (path !== '/' && path !== '')
   {
