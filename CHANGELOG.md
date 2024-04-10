@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.3.1...v1.3.2) (2024-04-10)
+
+
+### Bug Fixes
+
+* new line excaping ([13c6aad](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/13c6aad61f4dc70e2aaaa58e6cc33e446d0f61d3))
+
 ## [1.3.1](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.3.0...v1.3.1) (2024-02-02)
 
 
