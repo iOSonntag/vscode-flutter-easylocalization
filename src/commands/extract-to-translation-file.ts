@@ -156,7 +156,7 @@ async function addTranslation(file: vscode.Uri, keyPrefix: string, keyName: stri
     throw new Error(`Key ${keyPrefix + keyName} already exists in ${file.fsPath}`);
   }
 
-  json[keyPrefix + keyName] = translation;
+  json[keyPrefix + keyName] = translation.replaceAll('\\n', '\n');
 
   if (pluginConfig.sortKeysAlphabetically)
   {
