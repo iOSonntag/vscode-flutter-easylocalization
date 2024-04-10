@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.3.0...v1.3.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* windows path issue ([a883e29](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/a883e29048a4704ab29dd33e600e79358ef349f9))
+
 # [1.3.0](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.2.0...v1.3.0) (2023-11-21)
 
 
