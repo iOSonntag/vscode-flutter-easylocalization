@@ -117,6 +117,8 @@ async function getTranslationFiles()
     throw new Error(`Couldn't find any translation files in ${translationDir}`);
   }
 
+  translationFiles.sort((a: any, b: any) => a.path.localeCompare(b.path));
+
   return translationFiles;
 }
 
