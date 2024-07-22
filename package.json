@@ -34,7 +34,12 @@
       {
         "command": "fluttereasylocalization.extractToTranslationForGeneral",
         "title": "EasyLocalization: Extract translation as general purpose string"
+      },
+      {
+        "command": "fluttereasylocalization.regenerateTranslationKeys",
+        "title": "EasyLocalization: Regenerate all keys from translation files"
       }
+      
     ]
   },
   "scripts": {

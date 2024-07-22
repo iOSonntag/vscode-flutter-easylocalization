@@ -16,6 +16,21 @@ export const extractToTranslationForGeneral = async () =>
   await extractToTranslationFile(pluginConfig.generalTranslationPrefix);
 };
 
+export const regenerateTranslationKeys = async () =>
+{
+  try
+  {
+    await runGenerationCommand();
+    vscode.window.showInformationMessage('Done!');
+  }
+  catch (error: any)
+  {
+    console.log('error', error);
+    vscode.window.showErrorMessage(error.message);
+    return;
+  }
+}
+
 const extractToTranslationFile = async (prefix: string) =>
 {
   try
