@@ -40,7 +40,37 @@
         "title": "EasyLocalization: Regenerate all keys from translation files"
       }
       
-    ]
+    ],
+    "configuration": {
+      "title": "Flutter EasyLocalization",
+      "properties": {
+        "fluttereasylocalization.translationDir": {
+          "type": "string",
+          "default": "assets/translations",
+          "description": "The directory where the translation files are stored relative to the flutter project."
+        },
+        "fluttereasylocalization.generalTranslationPrefix": {
+          "type": "string",
+          "default": "general_",
+          "description": "The prefix for general purpose translations. It is used to distinguish between general purpose translations and file specific translations."
+        },
+        "fluttereasylocalization.sortKeysAlphabetically": {
+          "type": "boolean",
+          "default": true,
+          "description": "Wether or not to sort the keys alphabetically in the translation files. This applies after each new generfation of translation entries."
+        },
+        "fluttereasylocalization.generatedKeyFileDir": {
+          "type": "string",
+          "default": "lib/generated",
+          "description": "This is the directory where the generated key file is stored. It is relative to the flutter project."
+        },
+        "fluttereasylocalization.generatedKeyFileName": {
+          "type": "string",
+          "default": "locale_keys.g.dart",
+          "description": "This is the name of the generated key file for flutter. It is recommended to add 'lib/**/*.g.dart' as an analyzer exclude in the analysis_options.yaml file."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
