@@ -1,3 +1,16 @@
+# [1.4.0](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.3.2...v1.4.0) (2024-07-22)
+
+
+### Bug Fixes
+
+* sort translation files by name in order to have same ordering every time ([3c5b493](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/3c5b4934355f699683d00a2f35b865ab0b023d1a))
+
+
+### Features
+
+* add new command for regenerating keys ([490ef6b](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/490ef6b42f5efe8965e1360d45a7040848d54917))
+* add vscode visible settings section ([05fe3b8](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/05fe3b85ced131515bf19b88f2b7adfbb34b078c))
+
 ## [1.3.2](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.3.1...v1.3.2) (2024-04-10)
 
 

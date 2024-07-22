@@ -2,7 +2,7 @@
   "name": "fluttereasylocalization",
   "displayName": "Flutter EasyLocalization",
   "description": "Helps to extract strings into localization files, generate the keys and replaces the string with the localization key.",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "icon": "resources/icon.png",
   "engines": {
     "vscode": "^1.84.2"
@@ -39,7 +39,6 @@
         "command": "fluttereasylocalization.regenerateTranslationKeys",
         "title": "EasyLocalization: Regenerate all keys from translation files"
       }
-      
     ],
     "configuration": {
       "title": "Flutter EasyLocalization",
