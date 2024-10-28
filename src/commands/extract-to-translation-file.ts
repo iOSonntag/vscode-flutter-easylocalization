@@ -123,7 +123,6 @@ async function getTranslationFiles()
   }
 
   console.log('pattern', pattern);
-  
 
   const translationFiles = await vscode.workspace.findFiles(pattern);
 
