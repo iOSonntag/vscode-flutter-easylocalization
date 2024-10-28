@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.4.1...v1.4.2) (2024-10-28)
+
+
+### Bug Fixes
+
+* trigger ci ([03f2b23](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/03f2b234c0c7d96d2050e06bb6ea55a17aa12196))
+
 # [1.4.0](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.3.2...v1.4.0) (2024-07-22)
 
 
