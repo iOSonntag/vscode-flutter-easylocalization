@@ -203,7 +203,7 @@ async function runGenerationCommand()
     const outDir = pluginConfig.generatedKeyFileDir;
     const outFile = pluginConfig.generatedKeyFileName;
   
-    const command = `flutter pub run easy_localization:generate -f keys --source-dir ${sourceDir} --output-dir ${outDir} --output-file ${outFile}`;
+    const command = `dart run easy_localization:generate -f keys --source-dir ${sourceDir} --output-dir ${outDir} --output-file ${outFile}`;
   
     const flutterRoot = getFlutterRoot(false);
   
