@@ -12,6 +12,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # semantic-release needs full history + all tags to determine the version
+          fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
 
@@ -70,7 +73,10 @@ jobs:
       #   run: |
       #     pnpm run build
 
+      # Only publish when semantic-release actually cut a new version.
+      # Otherwise this step would re-publish the stale package.json version.
       - name: Publish
+        if: steps.chkVersion.outputs.NEXT_RELEASE_VERSION != ''
         run: pnpm run deploy
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
@@ -86,6 +92,7 @@ jobs:
       #       main.js manifest.json styles.css
       
       - name: Push Tag and staged Files
+        if: steps.chkVersion.outputs.NEXT_RELEASE_VERSION != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
