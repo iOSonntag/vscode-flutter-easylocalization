@@ -16,7 +16,9 @@ Select a hard‑coded string, hit one shortcut, type the translations, and the e
 
 ## Why you'll like it
 
-Localizing a Flutter app usually means a tedious round‑trip: copy the string, open the `en.json`, add a key, repeat for every other language, run the code generator, come back, replace the string, fix the imports. This extension collapses all of that into a single command — so you can stay focused on building your UI / app.
+Localizing a Flutter app usually means a tedious round‑trip: copy the string, open the `en.json`, add a key, repeat for every other language, run the code generator, come back, replace the string, fix the imports.  
+
+This extension collapses all of that into a single command — so you can stay focused on building your UI / app.
 
 - 🧩 **Stay in your file** — extract and replace strings right where the cursor is.
 - 🌍 **Every language at once** — you're prompted for the translation in each language file you have.
