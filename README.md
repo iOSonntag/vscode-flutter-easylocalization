@@ -16,7 +16,7 @@ Select a hard‑coded string, hit one shortcut, type the translations, and the e
 
 ## Why you'll like it
 
-Localizing a Flutter app usually means a tedious round‑trip: copy the string, open the `en.json`, add a key, repeat for every other language, run the code generator, come back, replace the string, fix the imports. This extension collapses all of that into a single command — so you can stay focused on building your UI.
+Localizing a Flutter app usually means a tedious round‑trip: copy the string, open the `en.json`, add a key, repeat for every other language, run the code generator, come back, replace the string, fix the imports. This extension collapses all of that into a single command — so you can stay focused on building your UI / app.
 
 - 🧩 **Stay in your file** — extract and replace strings right where the cursor is.
 - 🌍 **Every language at once** — you're prompted for the translation in each language file you have.
@@ -33,14 +33,20 @@ Say you're in `home_page.dart` with a hard‑coded string:
 Text('Welcome back!')
 ```
 
-Select the string, run **EasyLocalization: Extract translation for this file**, and enter the key name `welcome`. The extension turns it into:
+- Move your cursor to the string
+- Run the `Quick Fix` **EasyLocalization: Extract translation for this file**  
+*(also available via Command Palette)*
+- Enter the key name `welcome`
+
+The extension turns it into:
 
 ```dart
 // After  — string replaced, imports added automatically
 Text(LocaleKeys.homePage_welcome.tr())
 ```
 
-…and writes the value into each of your translation files (prefixing the key with the file name):
+And writes the value into each of your translation files:  
+*(prefixing the key with the file name)*
 
 ```jsonc
 // assets/translations/en.json
@@ -58,6 +64,8 @@ Text(LocaleKeys.homePage_welcome.tr())
 
 The matching `LocaleKeys.homePage_welcome` entry is generated for you — no manual bookkeeping.
 
+> **How the file prefix is built:** the file name (snake_case) is converted to camelCase — `home_page.dart` → `homePage` — and joined to your key by the separator from `fluttereasylocalization.fileTranslationPrefixSeparator` (default `_`), giving `homePage_welcome`. Prefer no prefix? Use **Extract translation as custom/specialized key**, where the key is exactly what you type.
+
 ## Quick start
 
 1. **Add the package.** Make sure [`easy_localization`](https://pub.dev/packages/easy_localization) is in your `pubspec.yaml` and set up (it powers the actual translation/codegen).
@@ -74,6 +82,7 @@ That's it — the keys, translations, replacement, and imports are all done for 
 | --- | --- |
 | **EasyLocalization: Extract translation for this file** | Extracts the selected string with a key prefixed by the current file's name (e.g. `homePage_…`). |
 | **EasyLocalization: Extract translation as general purpose string** | Extracts the selected string with the shared general‑purpose prefix (default `general_`). Use it for strings reused across the app. |
+| **EasyLocalization: Extract translation as custom/specialized key** | Extracts the selected string with **no prefix at all** — the key is exactly what you type. Use it for one‑off or specialized keys you want to name yourself. |
 | **EasyLocalization: Regenerate all keys from translation files** | Re‑runs the `easy_localization` key generator to rebuild the generated keys file from your translation JSON. |
 
 ## Settings
@@ -84,6 +93,7 @@ All settings are available in the VS Code Settings UI under **Flutter EasyLocali
 | --- | --- | --- |
 | `fluttereasylocalization.translationDir` | `assets/translations` | Directory holding your translation `*.json` files, relative to the Flutter project root. |
 | `fluttereasylocalization.generalTranslationPrefix` | `general_` | Key prefix used for general‑purpose (app‑wide) translations. |
+| `fluttereasylocalization.fileTranslationPrefixSeparator` | `_` | Separator between the file‑derived prefix and the key for the *Extract translation for this file* command. The file name (snake_case) is converted to camelCase to form the prefix — `home_page.dart` → `homePage` — so a key `welcome` becomes `homePage_welcome`. Set to an empty string for no separator. |
 | `fluttereasylocalization.sortKeysAlphabetically` | `true` | Sort keys alphabetically in the translation files after each new entry. |
 | `fluttereasylocalization.generatedKeyFileDir` | `lib/generated` | Directory for the generated keys file, relative to the Flutter project root. |
 | `fluttereasylocalization.generatedKeyFileName` | `locale_keys.g.dart` | Name of the generated keys file. Tip: add `lib/**/*.g.dart` to your `analysis_options.yaml` analyzer excludes. |
