@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.4.2...v1.5.0) (2026-06-05)
+
+
+### Bug Fixes
+
+* modernize tooling, docs and settings; add trivy release gate ([2b7f7ef](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/2b7f7efd99a1ae76c47e22256875e012a084ae92))
+
+
+### Features
+
+* ability to extract string with a custom key (no prefix) ([f608f9e](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/f608f9e188578c85dd04c1f90a782eff9666c0da))
+* add ability to specify file key seperator ([2675c11](https://github.com/iOSonntag/vscode-flutter-easylocalization/commit/2675c111262de25b01f007b5f02db7228a3eb7a9))
+
 ## [1.4.2](https://github.com/iOSonntag/vscode-flutter-easylocalization/compare/v1.4.1...v1.4.2) (2024-10-28)
 
 
