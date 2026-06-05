@@ -16,6 +16,11 @@ export const extractToTranslationForGeneral = async () =>
   await extractToTranslationFile(pluginConfig.generalTranslationPrefix);
 };
 
+export const extractToTranslationForCustomKey = async () =>
+{
+  await extractToTranslationFile('');
+};
+
 export const regenerateTranslationKeys = async () =>
 {
   try

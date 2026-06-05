@@ -36,6 +36,10 @@
         "title": "EasyLocalization: Extract translation as general purpose string"
       },
       {
+        "command": "fluttereasylocalization.extractToTranslationForCustomKey",
+        "title": "EasyLocalization: Extract translation as custom key (no prefix)"
+      },
+      {
         "command": "fluttereasylocalization.regenerateTranslationKeys",
         "title": "EasyLocalization: Regenerate all keys from translation files"
       }

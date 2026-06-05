@@ -22,6 +22,10 @@ export class ExtractTranslationCodeActionProvider implements vscode.CodeActionPr
         command: `${Values.pluginId}.extractToTranslationForGeneral`,
         title: "EasyLocalization: Extract translation as general purpose string",
       },
+      {
+        command: `${Values.pluginId}.extractToTranslationForCustomKey`,
+        title: "EasyLocalization: Extract translation as custom key (no prefix)",
+      },
     ].map((c) => {
       let action = new vscode.CodeAction(
         c.title,
