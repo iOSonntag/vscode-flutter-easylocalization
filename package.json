@@ -57,24 +57,31 @@
           "scope": "resource",
           "markdownDescription": "The prefix for general purpose translation keys. It is used to distinguish between general purpose translations and file specific translations."
         },
+        "fluttereasylocalization.fileTranslationPrefixSeparator": {
+          "type": "string",
+          "default": "_",
+          "order": 3,
+          "scope": "resource",
+          "markdownDescription": "The separator inserted between the file-derived prefix and the key name for the *Extract translation for this file* command.\n\nThe current file's name (snake_case) is converted to camelCase to build the prefix — e.g. `home_page.dart` becomes `homePage` — and this separator joins it to the key you enter. With the default `_`, the key `welcome` becomes `homePage_welcome`. Set it to an empty string for no separator (`homePagewelcome`)."
+        },
         "fluttereasylocalization.sortKeysAlphabetically": {
           "type": "boolean",
           "default": true,
-          "order": 3,
+          "order": 4,
           "scope": "resource",
           "markdownDescription": "Whether or not to sort the keys alphabetically in the translation files. This applies after each new generation of translation entries."
         },
         "fluttereasylocalization.generatedKeyFileDir": {
           "type": "string",
           "default": "lib/generated",
-          "order": 4,
+          "order": 5,
           "scope": "resource",
           "markdownDescription": "The directory where the generated key file is stored, relative to the Flutter project root."
         },
         "fluttereasylocalization.generatedKeyFileName": {
           "type": "string",
           "default": "locale_keys.g.dart",
-          "order": 5,
+          "order": 6,
           "scope": "resource",
           "markdownDescription": "The name of the generated key file for Flutter. It is recommended to add `lib/**/*.g.dart` as an analyzer exclude in your `analysis_options.yaml` file."
         }

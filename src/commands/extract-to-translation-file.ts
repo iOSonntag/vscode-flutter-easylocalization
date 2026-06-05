@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
-import { addImportToCurrentFileIfNeeded, currentFile, currentFileName, fileNameToPrefix, getFlutterProjectPackageName, getFlutterRoot, replaceSelectedText, runShellCommand, selectedText, showPrompt } from '../utils/utils';
+import { addImportToCurrentFileIfNeeded, currentFileName, fileNameToPrefix, getFlutterRoot, replaceSelectedText, runShellCommand, selectedText, showPrompt } from '../utils/utils';
 import { pluginConfig } from '../config/listeners';
 
 export const extractToTranslationForFile = async () =>
 {
   const fileName = currentFileName();
 
-  const prefix = fileNameToPrefix(fileName) + '_';
+  const prefix = fileNameToPrefix(fileName) + pluginConfig.fileTranslationPrefixSeparator;
 
   await extractToTranslationFile(prefix);
 };

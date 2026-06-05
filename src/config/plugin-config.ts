@@ -6,6 +6,7 @@ export class PluginConfig {
 
   translationDir: string;
   generalTranslationPrefix: string;
+  fileTranslationPrefixSeparator: string;
   sortKeysAlphabetically: boolean;
   generatedKeyFileDir: string;
   generatedKeyFileName: string;
@@ -16,6 +17,7 @@ export class PluginConfig {
 
     this.translationDir = config.get('translationDir') ?? 'assets/translations';
     this.generalTranslationPrefix = config.get('generalTranslationPrefix') ?? 'general_';
+    this.fileTranslationPrefixSeparator = config.get('fileTranslationPrefixSeparator') ?? '_';
     this.sortKeysAlphabetically = config.get('sortKeysAlphabetically') ?? true;
     this.generatedKeyFileDir = config.get('generatedKeyFileDir') ?? 'lib/generated';
     this.generatedKeyFileName = config.get('generatedKeyFileName') ?? 'locale_keys.g.dart';
