@@ -9,6 +9,16 @@ webpack.config.js
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/.eslintrc.json
+eslint.config.mjs
+pnpm-workspace.yaml
 **/*.map
 **/*.ts
 .releaserc.js
+.husky/**
+commitlint.config.js
+.github/**
+.npmrc
+pnpm-lock.yaml
+*.vsix
+resources/easy_localization.mov
+resources/demo.gif

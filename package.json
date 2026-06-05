@@ -46,27 +46,37 @@
         "fluttereasylocalization.translationDir": {
           "type": "string",
           "default": "assets/translations",
-          "description": "The directory where the translation files are stored relative to the flutter project."
+          "order": 1,
+          "scope": "resource",
+          "markdownDescription": "The directory where the translation files are stored, relative to the Flutter project root."
         },
         "fluttereasylocalization.generalTranslationPrefix": {
           "type": "string",
           "default": "general_",
-          "description": "The prefix for general purpose translations. It is used to distinguish between general purpose translations and file specific translations."
+          "order": 2,
+          "scope": "resource",
+          "markdownDescription": "The prefix for general purpose translation keys. It is used to distinguish between general purpose translations and file specific translations."
         },
         "fluttereasylocalization.sortKeysAlphabetically": {
           "type": "boolean",
           "default": true,
-          "description": "Wether or not to sort the keys alphabetically in the translation files. This applies after each new generfation of translation entries."
+          "order": 3,
+          "scope": "resource",
+          "markdownDescription": "Whether or not to sort the keys alphabetically in the translation files. This applies after each new generation of translation entries."
         },
         "fluttereasylocalization.generatedKeyFileDir": {
           "type": "string",
           "default": "lib/generated",
-          "description": "This is the directory where the generated key file is stored. It is relative to the flutter project."
+          "order": 4,
+          "scope": "resource",
+          "markdownDescription": "The directory where the generated key file is stored, relative to the Flutter project root."
         },
         "fluttereasylocalization.generatedKeyFileName": {
           "type": "string",
           "default": "locale_keys.g.dart",
-          "description": "This is the name of the generated key file for flutter. It is recommended to add 'lib/**/*.g.dart' as an analyzer exclude in the analysis_options.yaml file."
+          "order": 5,
+          "scope": "resource",
+          "markdownDescription": "The name of the generated key file for Flutter. It is recommended to add `lib/**/*.g.dart` as an analyzer exclude in your `analysis_options.yaml` file."
         }
       }
     }
@@ -79,33 +89,33 @@
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src",
     "test": "node ./out/test/runTest.js",
     "semantic-release": "semantic-release",
-    "prepare": "husky install",
+    "prepare": "husky",
     "commitlint": "commitlint --edit",
     "deploy": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^10.0.1",
-    "@types/mocha": "^10.0.3",
-    "@types/node": "18.x",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.0.0",
     "@types/vscode": "^1.84.0",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
-    "@vscode/test-electron": "^2.3.6",
-    "@vscode/vsce": "^2.22.0",
-    "commitlint": "^17.7.1",
-    "eslint": "^8.52.0",
-    "glob": "^10.3.10",
-    "husky": "^8.0.3",
-    "mocha": "^10.2.0",
-    "semantic-release": "^22.0.4",
-    "ts-loader": "^9.5.0",
-    "typescript": "^5.2.2",
-    "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
-  }
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.9.2",
+    "commitlint": "^21.0.2",
+    "eslint": "^10.4.1",
+    "glob": "^13.0.6",
+    "husky": "^9.1.7",
+    "mocha": "^11.7.6",
+    "semantic-release": "^25.0.3",
+    "ts-loader": "^9.6.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.60.1",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3"
+  },
+  "packageManager": "pnpm@11.1.2"
 }

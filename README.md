@@ -1,107 +1,121 @@
-# VSCode Plugin: Flutter EasyLocalization
+# Flutter EasyLocalization for VS Code
 
-![Dynamic JSON
-Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FiOSonntag%2Fvscode-flutter-easylocalization%2Fmaster%2Fpackage.json&query=%24.version&label=version)
-![Static Badge](https://img.shields.io/badge/strict-d?label=TypeScript)
+[![Version](https://vsmarketplacebadges.dev/version-short/iOSonntag.fluttereasylocalization.png)](https://marketplace.visualstudio.com/items?itemName=iOSonntag.fluttereasylocalization)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/iOSonntag.fluttereasylocalization.png)](https://marketplace.visualstudio.com/items?itemName=iOSonntag.fluttereasylocalization)
+[![Downloads](https://vsmarketplacebadges.dev/downloads-short/iOSonntag.fluttereasylocalization.png)](https://marketplace.visualstudio.com/items?itemName=iOSonntag.fluttereasylocalization)
+[![Rating](https://vsmarketplacebadges.dev/rating-star/iOSonntag.fluttereasylocalization.png)](https://marketplace.visualstudio.com/items?itemName=iOSonntag.fluttereasylocalization&ssr=false#review-details)
+[![License](https://img.shields.io/github/license/iOSonntag/vscode-flutter-easylocalization)](https://github.com/iOSonntag/vscode-flutter-easylocalization/blob/main/LICENSE)
 
+> **Translate your Flutter app without leaving the file you're working in.**
 
+Select a hard‑coded string, hit one shortcut, type the translations, and the extension does the rest: it writes the value into every translation file, regenerates your `LocaleKeys`, swaps the string for the generated key, and adds the imports for you.
 
-Extract strings into localization files and generate all translations while
-doing so, all from the comfort of staying in the development file.
+![Flutter EasyLocalization demo](https://raw.githubusercontent.com/iOSonntag/vscode-flutter-easylocalization/main/resources/demo.gif)
 
-**Showcase**
-<video src="resources/easy_localization.mov?raw=true" width="500">
+---
 
+## Why you'll like it
 
+Localizing a Flutter app usually means a tedious round‑trip: copy the string, open the `en.json`, add a key, repeat for every other language, run the code generator, come back, replace the string, fix the imports. This extension collapses all of that into a single command — so you can stay focused on building your UI.
 
-## Features
+- 🧩 **Stay in your file** — extract and replace strings right where the cursor is.
+- 🌍 **Every language at once** — you're prompted for the translation in each language file you have.
+- 🔑 **Keys generated for you** — runs `easy_localization`'s key generator automatically.
+- ✨ **Imports handled** — adds the `easy_localization` and generated‑keys imports if they're missing.
+- 💡 **Lightbulb friendly** — available as a Quick Fix (code action) on any selected string.
 
-- extract current file's strings into localization files
-- generate all translations for the extracted strings
-- decide if the string is for the current file or for the whole project
-  (general)
+## See it in action
 
-## What it does:
+Say you're in `home_page.dart` with a hard‑coded string:
 
-- extracts the current strings into the localization files
-- asks for the translation for each language available
-- puts the translations into the localization files
-- generates the key file for the translations
-- replaces the strings in the current file with the generated keys
-- updates imports to access the generated key file
+```dart
+// Before
+Text('Welcome back!')
+```
 
->**Or simply put**  
->Makes your translation workflow a lot easier and faster.
+Select the string, run **EasyLocalization: Extract translation for this file**, and enter the key name `welcome`. The extension turns it into:
 
-## Note on the underlying package
+```dart
+// After  — string replaced, imports added automatically
+Text(LocaleKeys.homePage_welcome.tr())
+```
 
-This plugin is based on the
-[EasyLocalization](https://pub.dev/packages/easy_localization) package.
-You need to add this package to your `pubspec.yaml` file in order to use this
-plugin. 
+…and writes the value into each of your translation files (prefixing the key with the file name):
 
->**Also note**  
->This plugin is not affiliated with the package in any way.  
->
->Meaning:  
->The credit of the translation engine itself goes to the
->[EasyLocalization](https://pub.dev/packages/easy_localization) package.
+```jsonc
+// assets/translations/en.json
+{
+  "homePage_welcome": "Welcome back!"
+}
+```
 
+```jsonc
+// assets/translations/de.json
+{
+  "homePage_welcome": "Willkommen zurück!"
+}
+```
+
+The matching `LocaleKeys.homePage_welcome` entry is generated for you — no manual bookkeeping.
+
+## Quick start
+
+1. **Add the package.** Make sure [`easy_localization`](https://pub.dev/packages/easy_localization) is in your `pubspec.yaml` and set up (it powers the actual translation/codegen).
+2. **Point the extension at your translations.** By default it looks in `assets/translations` for your `*.json` language files. Change it under **Settings → Flutter EasyLocalization** if yours live elsewhere.
+3. **Extract a string.** Put your cursor inside any string in a `.dart` file, then either:
+   - click the 💡 lightbulb and pick the EasyLocalization action, or
+   - open the Command Palette (`Cmd/Ctrl+Shift+P`) and run one of the commands below.
+
+That's it — the keys, translations, replacement, and imports are all done for you.
+
+## Commands
+
+| Command | What it does |
+| --- | --- |
+| **EasyLocalization: Extract translation for this file** | Extracts the selected string with a key prefixed by the current file's name (e.g. `homePage_…`). |
+| **EasyLocalization: Extract translation as general purpose string** | Extracts the selected string with the shared general‑purpose prefix (default `general_`). Use it for strings reused across the app. |
+| **EasyLocalization: Regenerate all keys from translation files** | Re‑runs the `easy_localization` key generator to rebuild the generated keys file from your translation JSON. |
 
 ## Settings
 
+All settings are available in the VS Code Settings UI under **Flutter EasyLocalization** (or directly in `settings.json`). They can also be set per‑workspace.
 
-- **translationDir**  
-*The relative directory where the translations files live in.*  
-default: `assets/translations`
-- **generalTranslationPrefix**  
-*The prefix for translations keys to use when extracting for genewral purpose.*  
-default: `general_`
+| Setting | Default | Description |
+| --- | --- | --- |
+| `fluttereasylocalization.translationDir` | `assets/translations` | Directory holding your translation `*.json` files, relative to the Flutter project root. |
+| `fluttereasylocalization.generalTranslationPrefix` | `general_` | Key prefix used for general‑purpose (app‑wide) translations. |
+| `fluttereasylocalization.sortKeysAlphabetically` | `true` | Sort keys alphabetically in the translation files after each new entry. |
+| `fluttereasylocalization.generatedKeyFileDir` | `lib/generated` | Directory for the generated keys file, relative to the Flutter project root. |
+| `fluttereasylocalization.generatedKeyFileName` | `locale_keys.g.dart` | Name of the generated keys file. Tip: add `lib/**/*.g.dart` to your `analysis_options.yaml` analyzer excludes. |
 
-- **sortKeysAlphabetically**  
-*If the translation files should be sorted alphabetically after generation.*  
-default: `true`
+## Note on the underlying package
 
-- **generatedKeyFileDir**  
-*The relative directory where the generated key file should be saved to.*  
-default: `lib/generated`
+This extension is a workflow helper around the
+[EasyLocalization](https://pub.dev/packages/easy_localization) package — you need
+that package in your `pubspec.yaml` for it to work.
 
-- **generatedKeyFileName**  
-*The name of the generated key file.*  
-default: `locale_keys.g.dart`
+> **Not affiliated.** This plugin is not affiliated with the package in any way.
+> All credit for the translation engine and code generation itself goes to the
+> [EasyLocalization](https://pub.dev/packages/easy_localization) package and its authors.
 
+## Found a bug? Have an idea?
 
-## Bugs
+Please open an issue — it genuinely helps:
+[Flutter EasyLocalization · GitHub Issues](https://github.com/iOSonntag/vscode-flutter-easylocalization/issues)
 
-Please report any issues at: [Flutter EasyLocalization VSCode Plugin - GitHub Repository](https://github.com/iOSonntag/vscode-flutter-easylocalization/issues)
+## Contributing
 
+Pull requests are **very welcome**! If you can fix a bug or add an improvement, please don't hesitate to open one.
 
-## Contribution
+**And even if you think you're not skilled enough — that's pure nonsense. We're all beginners, all the time. :)**
 
-Pull requests are **WELCOME** !
+## Support this plugin
 
-If you have improvements or feel like you can solve a bug, please do not
-hesitate to submit a pull requests. 
+If this extension saves you time and you'd like to support it — open a feature request, send a pull request, or buy me a little coffee. Thank you! ☕
 
-**Even if you think you might not be skilled
-enough. That is pure bullsh*t. We are all beginners - all the time :)**
+<a href="https://www.buymeacoffee.com/iOSonntag" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;"></a>
 
-## Support This Plugin
-
-If you like this plugin and want to support it - submit a feature request, a
-pull request or simply buy me
-a little coffee :) - Thank You.
-
-<a href="https://www.buymeacoffee.com/iOSonntag" target="_blank"><img
-src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A
-Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-
-or direct via
 - [Buy Me A Coffee](https://www.buymeacoffee.com/iOSonntag)
-- [GitHub Sponsor](https://github.com/sponsors/iOSonntag)
+- [GitHub Sponsors](https://github.com/sponsors/iOSonntag)
 - [PayPal](https://paypal.com/paypalme/iOSonntag/20)
 - [Homepage](https://iOSonntag.com/buy-me-a-coffe)
-
-## DISCLAIMER
-
-I disclaim that I forgot to disclaim the right disclaims.

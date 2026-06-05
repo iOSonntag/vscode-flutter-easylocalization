@@ -1,0 +1,8 @@
+# Native dependency build scripts are intentionally NOT run.
+# Neither is needed for this extension's build or release flow:
+#   - @vscode/vsce-sign only verifies extension signatures (not needed to package/publish)
+#   - keytar is only used by `vsce login`; CI authenticates via the VSCE_PAT env var
+# Skipping them avoids fragile native compiles (e.g. keytar needs libsecret on Linux).
+allowBuilds:
+  '@vscode/vsce-sign': false
+  keytar: false

@@ -11,20 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
 
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
-      
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
+          node-version: "22.x"
 
       - name: Install dependencies
         run: |
           pnpm install
+
+      # Security gate: fail the release on HIGH/CRITICAL findings.
+      # Scans dependencies (vuln), committed secrets, and CI/IaC misconfig.
+      # Note: Trivy suppresses dev-only deps by default; this extension ships no
+      # runtime deps (everything is webpack-bundled), so secret/misconfig scanning
+      # is the gate's main active value here.
+      - name: Trivy security scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          scanners: 'vuln,secret,misconfig'
+          severity: 'HIGH,CRITICAL'
+          ignore-unfixed: true
+          exit-code: '1'
+          format: 'table'
 
       - name: Create new version & CHANGELOG.md
         id: chkVersion
