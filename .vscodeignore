@@ -20,5 +20,7 @@ commitlint.config.js
 .npmrc
 pnpm-lock.yaml
 *.vsix
+.cache/**
+**/.cache/**
 resources/easy_localization.mov
 resources/demo.gif

@@ -2,6 +2,7 @@
 /dist
 
 *.vsix
+.cache/
 
 /.vscode-test
 /out

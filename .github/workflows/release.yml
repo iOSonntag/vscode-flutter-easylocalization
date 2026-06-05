@@ -39,6 +39,10 @@ jobs:
           ignore-unfixed: true
           exit-code: '1'
           format: 'table'
+          # Keep the ~1GB Trivy DB OUT of the workspace. Its default
+          # (${{ github.workspace }}/.cache/trivy) gets picked up by vsce, whose
+          # secret scanner then fails trying to scan the 1GB DB at publish time.
+          cache-dir: ${{ runner.temp }}/.trivy-cache
 
       - name: Create new version & CHANGELOG.md
         id: chkVersion
